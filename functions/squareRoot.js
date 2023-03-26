@@ -34,13 +34,27 @@ Pseudocode:
 Source: https://math.mit.edu/~stevenj/18.335/newton-sqrt.pdf
 */
 function squareRoot(num){
-    let sqrt = num, precision = 0.0000000001, diff = sqrt * sqrt - num;
+    if(num < 0) return NaN;
+
+    let sqrt = num, precision = 0.0000000001, diff = 1, square = 0, prev = 0;
 
     while(diff > precision){
+        prev = sqrt;
         sqrt = (sqrt + num / sqrt) / 2;
-        diff = sqrt * sqrt - num;
+        diff = prev - sqrt;
+
+        if(diff < 0){ //handle the cases of decimal inputs
+            diff *= -1;
+        }
+
+        if(diff <= precision){ //avoid unnecessary narrowing
+            break;
+        }
+
+        square = sqrt * sqrt;
+        diff = square - num;
     }
 
-    return sqrt;
+    return parseFloat(sqrt.toFixed(10));
 }
-export {squareRoot};
+module.exports = squareRoot
