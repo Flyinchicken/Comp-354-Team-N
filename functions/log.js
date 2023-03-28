@@ -3,13 +3,30 @@ function log(x, base) {
   if (x <= 0 || base <= 0 || base === 1) {
     return NaN;
   }
-  
+
   let result = 0;
   while (x >= base) {
     x /= base;
     result++;
   }
-  
-  return parseFloat(result.toFixed(5));
+
+  let fractional = 0;
+  let multiplier = 1.15;
+  const MAX_ITERATIONS = 100;
+  let i = 0;
+  while (x !== 1 && i < MAX_ITERATIONS) {
+    if (x < 1) {
+      x *= base;
+      fractional -= multiplier;
+    } else {
+      x /= base;
+      fractional += multiplier;
+    }
+    multiplier /= 2;
+    i++;
+  }
+
+  return result + fractional;
 }
-module.exports = log
+
+module.exports = log;
