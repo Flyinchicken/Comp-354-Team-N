@@ -28,7 +28,7 @@ function std(nums){
     variance = sum / (nums.length - 1);
     std = squareRoot(variance);
 
-    return parseFloat(std.toFixed(10));
+    return std;
 }
 module.exports = std
 

@@ -36,11 +36,13 @@ Source: https://math.mit.edu/~stevenj/18.335/newton-sqrt.pdf
 @returns {number} the positive square root of the input
  */
 function squareRoot(num){
-    if(num < 0) return NaN;
+    if(num < 0){
+        return NaN;
+    }else if(num == 0 || num == 1){
+        return num;
+    }
 
-    if(num == 0 || num == 1) return num;
-
-    let sqrt = num, precision = 0.0000000001, diff = 1, square = 0, prev = 0;
+    let sqrt = num, precision = Number.MIN_VALUE, diff = 1, square = 0, prev = 0;
 
     while(diff > precision){
         prev = sqrt;
@@ -59,6 +61,6 @@ function squareRoot(num){
         diff = square - num;
     }
 
-    return parseFloat(sqrt.toFixed(10));
+    return sqrt;
 }
 module.exports = squareRoot
