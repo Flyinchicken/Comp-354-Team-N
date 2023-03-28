@@ -2,7 +2,7 @@
  * Exponentiation function that raises the base to the given exponent.
  * @param {number} base The number to be raised
  * @param {number} exponent The power to which the base should be raised
- * @returns {number} result of the base raised to the exponent
+ * @returns {string} result of the base raised to the exponent
  */
 function exponentiation(base, exponent) {
     if (exponent === 0) {
@@ -31,7 +31,7 @@ function exponentiation(base, exponent) {
  * @param {number} resultToFormat The number to format
  * @param {number} minDecPlaces Minimum number of decimal places required
  * @param {number} maxDecPlaces Maximum number of decimal places required
- * @returns {number} result in the specified format
+ * @returns {string} formattedResult in the specified format
  */
 function formatToMinDecPlaces(resultToFormat, minDecPlaces = 4, maxDecPlaces = 8) {
     let formattedResult = resultToFormat.toFixed(minDecPlaces);
