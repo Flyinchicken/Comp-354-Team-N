@@ -1,5 +1,4 @@
 const arccos = require("./arccos.js");
-const squareRoot = require("./squareRoot.js");
 const PI = 3.1415926358979;
 
 /**
@@ -7,7 +6,7 @@ const PI = 3.1415926358979;
  */
 describe('Arccos Function', () => {
     test('Arc cosine of 0 is always pi/2', () => {
-        expect(arccos(0)).toBe((PI/2).toFixed(5));
+        expect(arccos(0)).toBe((PI/2));
     });
 
     test('Arc cosine of 1/2 is pi/3', () => {
