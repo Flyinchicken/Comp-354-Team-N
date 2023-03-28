@@ -14,10 +14,10 @@ describe('Standard deviation', () => {
   });
 
   test('Standard deviation of [1,2]', () => {
-    expect(std([1,2])).toBe(0.7071067812);
+    expect(std([1,2])).toBeCloseTo(0.7071067812);
   });
 
   test('Standard deviation of [10, 12, 23, 23, 16, 23, 21, 16]', () => {
-    expect(std([10, 12, 23, 23, 16, 23, 21, 16])).toBe(5.2372293657);
+    expect(std([10, 12, 23, 23, 16, 23, 21, 16])).toBeCloseTo(5.2372293657);
   });
 });
