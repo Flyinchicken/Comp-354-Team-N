@@ -19,5 +19,6 @@
   "homepage": "https://github.com/Flyinchicken/Comp-354-Team-N#readme",
   "devDependencies": {
     "jest": "^29.5.0"
-  }
+  },
+  "keywords": []
 }
