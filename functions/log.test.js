@@ -1,4 +1,4 @@
-const log = require('./LogFun');
+const log = require('./log');
 
 describe('log', () => {
   test('logarithm of 1000 base 10 is 3', () => {
