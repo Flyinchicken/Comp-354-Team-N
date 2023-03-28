@@ -26,6 +26,6 @@ describe('Postive square root by default', () => {
   });
 
   test('Square root of 2 is 1.4142135624', () => {
-    expect(parseFloat(squareRoot(2).toFixed(10))).toBe(1.4142135624);
+    expect(squareRoot(2)).toBeCloseTo(1.4142135624);
   });
 });
