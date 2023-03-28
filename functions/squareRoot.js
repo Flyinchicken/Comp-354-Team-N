@@ -1,5 +1,5 @@
-/* 
-Analysis: Newton's Method for root finding
+/**
+ Analysis: Newton's Method for root finding
 Consider calculating the square root of a number N as finding the positive root of the equation: x^2 - N = 0;
 
 Formula：
@@ -32,7 +32,9 @@ Pseudocode:
     Space Complexity: O(1)
 
 Source: https://math.mit.edu/~stevenj/18.335/newton-sqrt.pdf
-*/
+@param {number} num a positive target number of square root
+@returns {number} the positive square root of the input
+ */
 function squareRoot(num){
     if(num < 0) return NaN;
 

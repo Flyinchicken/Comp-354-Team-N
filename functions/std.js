@@ -1,5 +1,8 @@
 const squareRoot = require("./squareRoot")
-
+/**
+ * @param {number[]} nums an array of integers
+ * @returns {number} the standard deviation of the array of integers
+ */
 function std(nums){
     if(! Array.isArray(nums) || nums.length < 2){ //Ignore invalid inputs
         return NaN;
