@@ -36,4 +36,8 @@ describe('Arccos Function', () => {
     test('Arc cosine of -1 is pi', () => {
         expect(arccos(-1.0)).toBe((PI).toFixed(5));
     });
+
+    test('Arc cosine of 0.920330918458 is 0.401870647', () => {
+        expect(arccos(0.920330918458)).toBeCloseTo((23.025492/180*PI));
+    });
 });
