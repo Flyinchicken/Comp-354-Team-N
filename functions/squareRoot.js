@@ -36,6 +36,8 @@ Source: https://math.mit.edu/~stevenj/18.335/newton-sqrt.pdf
 function squareRoot(num){
     if(num < 0) return NaN;
 
+    if(num == 0 || num == 1) return num;
+
     let sqrt = num, precision = 0.0000000001, diff = 1, square = 0, prev = 0;
 
     while(diff > precision){

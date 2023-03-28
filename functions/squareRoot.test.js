@@ -9,8 +9,8 @@ describe('Postive square root by default', () => {
     expect(squareRoot(0)).toBe(0);
   });
 
-  test('Square root of 0.4 is 0.2', () => {
-    expect(squareRoot(0.04)).toBe(0.02);
+  test('Square root of 0.04 is 0.2', () => {
+    expect(squareRoot(0.04)).toBe(0.2);
   });
 
   test('Square root of 1 is 1', () => {
