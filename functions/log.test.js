@@ -1,4 +1,4 @@
-const log = require('./log');
+const log = require('./LogFun');
 
 describe('log', () => {
   test('logarithm of 1000 base 10 is 3', () => {
@@ -24,4 +24,8 @@ describe('log', () => {
   test('logarithm of -10 base 2 is NaN', () => {
     expect(log(-10, 2)).toBe(NaN);
   });
+
+  test('logarithm of 200 base 20 is 1.768', () => {
+    expect(log(200, 20)).toBeCloseTo(1.768); })
+
 });
