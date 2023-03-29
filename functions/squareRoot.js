@@ -12,8 +12,8 @@ Derivative of f(x) = X^2 - N:
 Equation: X_(i+1) = Xi - (Xi ^ 2 - N) / (2 * Xi) 
                   = (Xi + N / Xi) / 2
 
-1. Take a initial guess for the square root
-2. Add the intial guess to N divided by the intiial guess, then divide by 2. The result becomes a new guess.
+1. Take an initial guess for the square root
+2. Add the intial guess to N divided by the initial guess, then divide by 2. The result becomes a new guess.
 3. Repeat step 2 until finding the smallest guess whose square >= N
 
 Pseudocode:
