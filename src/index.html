@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ETERNITY - Team N</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar bg-body-tertiary bold_text">
+      <div class="container-fluid">
+        <a
+          class="navbar-brand"
+          href="#"
+          style="align-items: center; display: flex; color: #47555e"
+        >
+          <img
+            src="./assets/images/logo.png"
+            alt="Logo"
+            width="60"
+            height="60"
+            class="d-inline-block align-text-top"
+            style="margin-right: 10px"
+          />
+          ETERNITY - Team N
+        </a>
+        <div class="btn-group dropstart">
+          <button
+            type="button"
+            class="btn btn-secondary dropdown-toggle bold_text"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Settings
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Change Precision</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mx-auto shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+      <div class="row-fluid text-center">
+        <button type="button" class="btn btn-secondary std">σ</button>
+        <button type="button" class="btn btn-secondary mad">MAD</button>
+        <button type="button" class="btn btn-secondary arccos">
+          arccos(x)
+        </button>
+        <button type="button" class="btn btn-secondary exponent">
+          <var>x</var><sup>y</sup>
+        </button>
+        <button type="button" class="btn btn-secondary growth">
+          <var>a</var><var>b</var><sup>x</sup>
+        </button>
+        <button type="button" class="btn btn-secondary log">
+          log<sub>b</sub>(x)
+        </button>
+        <button type="button" class="btn btn-secondary sinh">sinh(x)</button>
+        <div
+          class="input-group mb-3 shadow p-3 mb-5 bg-body-tertiary rounded"
+          style="margin-top: 20px"
+        >
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Please select a function"
+            aria-label="operand(s)"
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn btn-outline-secondary bold_text"
+            type="button"
+            id="button-addon2"
+            type="submit"
+          >
+            GO
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+      <p class="bold_text">History</p>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
