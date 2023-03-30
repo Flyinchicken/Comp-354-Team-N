@@ -1,0 +1,11 @@
+.container {
+    width: auto;
+    max-width: 900px;
+    padding: 20px 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.bold_text{
+    font-weight: bold;
+}
