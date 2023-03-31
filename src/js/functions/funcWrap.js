@@ -97,7 +97,8 @@ function exponentialGrowth(initialValue, growthFactor, xValue, decimalPlaces){
         return 0;
     }
 
-    let growth = exponentiation(growthFactor, xValue); result = 0;
+    let growth = exponentiation(growthFactor, xValue); 
+    let result = 0;
     if(isNaN(growth)){
         return NaN;
     }
