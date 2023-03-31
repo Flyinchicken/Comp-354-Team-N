@@ -7,8 +7,11 @@ function changeTheme() {
         if (element.getAttribute("data-bs-theme") === "dark") {
             element.setAttribute("data-bs-theme", "light"); // Set to light mode
         } else {
-            if (element.id.includes("btn")) {
+            if (element.id.includes("Btn")) {
                 element.classList.toggle("btn-outline-dark");
+                element.classList.toggle("btn-outline-light");
+            } else if (element.id.includes("button-addon2")) {
+                element.classList.toggle("btn-outline-secondary");
                 element.classList.toggle("btn-outline-light");
             } else {
                 element.setAttribute("data-bs-theme", "dark"); // Set to dark mode
