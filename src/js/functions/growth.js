@@ -23,4 +23,5 @@ function exponentialGrowth(initialValue, growthFactor, xValue, decimalPlaces){
 
     return parseFloat(result.toFixed(decimalPlaces));
 }
+
 module.exports = exponentialGrowth

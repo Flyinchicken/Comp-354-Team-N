@@ -2,8 +2,7 @@
   "name": "eternity",
   "version": "1.0.0",
   "description": "Comp354 Team N Group Project",
-  "main": "index.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "test": "jest"
   },
