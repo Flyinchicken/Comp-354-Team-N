@@ -2,8 +2,57 @@ import { str, num, multiplyNumbers } from '../stnd/test.js'
 import { squareRoot, arccos, arcsin, exponentialGrowth, exponentiation, hyperbolicSine, log, mad, std } from '../functions/funcWrap.js'
 
 $(document).ready(function(){
-    $("#button-addon2").click(inputProcessing)
+    $("#button-addon2").click(inputProcessing);
+    $("#madBtn").click(madBtnPress);
+    $("#expBtn").click(expBtnPress);
+    $("#logBtn").click(logBtnPress);
+    $("#growthBtn").click(growthBtnPress);
+    $("#stdBtn").click(stdBtnPress);
+    $("#sinhBtn").click(sinhBtnPress);
+    $("#arccosBtn").click(arccosBtnPress);
 });
+
+function madBtnPress(){
+    var currentVal = $('#fullInput').val();
+    var newVal = currentVal + " mad(numbers... separate by ,)";
+    $('#fullInput').val(newVal);
+}
+
+function expBtnPress(){
+    var currentVal = $('#fullInput').val();
+    var newVal = currentVal + " exp(base,exponent)";
+    $('#fullInput').val(newVal);
+}
+
+function logBtnPress(){
+    var currentVal = $('#fullInput').val();
+    var newVal = currentVal + " log(x,base)";
+    $('#fullInput').val(newVal);
+}
+
+function growthBtnPress(){
+    var currentVal = $('#fullInput').val();
+    var newVal = currentVal + " growth(initialAmount,growthFactor,x)";
+    $('#fullInput').val(newVal);
+}
+
+function stdBtnPress(){
+    var currentVal = $('#fullInput').val();
+    var newVal = currentVal + " std(numbers... separate by ,)";
+    $('#fullInput').val(newVal);
+}
+
+function sinhBtnPress(){
+    var currentVal = $('#fullInput').val();
+    var newVal = currentVal + " sinh(x)";
+    $('#fullInput').val(newVal);
+}
+
+function arccosBtnPress(){
+    var currentVal = $('#fullInput').val();
+    var newVal = currentVal + " arccos(x)";
+    $('#fullInput').val(newVal);
+}
 
 function inputProcessing(){
     var fullInput = $("#fullInput").val();
