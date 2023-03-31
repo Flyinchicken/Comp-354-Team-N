@@ -20,8 +20,7 @@
           href="#"
           style="align-items: center; display: flex; color: #47555e"
         >
-          <img
-            src="../assets/images/logo.png"
+          <img src="../assets/images/logo.png"
             alt="Logo"
             width="60"
             height="60"
@@ -48,38 +47,60 @@
 
     <div class="container mx-auto shadow-sm p-3 mb-5 bg-body-tertiary rounded">
       <div class="row-fluid text-center">
-        <button type="button" class="btn btn-secondary std">σ</button>
+        <button type="button" class="btn btn-secondary std">
+          <math>
+            <mi>&#963;(x)
+            </mi>
+          </math>
+        </button>
         <button type="button" class="btn btn-secondary mad">MAD</button>
         <button type="button" class="btn btn-secondary arccos">
-          arccos(x)
+          <math>
+            <mrow>
+              <mi>arccos</mi>
+              <mo>(</mo>
+              <mi>x</mi>
+              <mo>)</mo>
+            </mrow>
+          </math>
         </button>
         <button type="button" class="btn btn-secondary exponent">
-          <var>x</var><sup>y</sup>
+          <math>
+            <msup>
+              <mi>x</mi>
+              <mi>y</mi>
+            </msup>
+          </math>
         </button>
         <button type="button" class="btn btn-secondary growth">
-          <var>a</var><var>b</var><sup>x</sup>
+          <math>
+            <msup>
+              <mrow>
+                <mi>a</mi>
+                <mi>b</mi>
+              </mrow>
+              <mi>x</mi>
+            </msup>
+          </math>
+    
         </button>
         <button type="button" class="btn btn-secondary log">
           log<sub>b</sub>(x)
         </button>
-        <button type="button" class="btn btn-secondary sinh">sinh(x)</button>
-        <div
-          class="input-group mb-3 shadow p-3 mb-5 bg-body-tertiary rounded"
-          style="margin-top: 20px"
-        >
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Please select a function"
-            aria-label="operand(s)"
-            aria-describedby="button-addon2"
-          />
-          <button
-            class="btn btn-outline-secondary bold_text"
-            type="button"
-            id="button-addon2"
-            type="submit"
-          >
+        <button type="button" class="btn btn-secondary sinh">
+          <math>
+            <mi>sinh</mi>
+            <mo>(</mo>
+            <mi>x</mi>
+            <mo>)</mo>
+            </sinh>
+          </math>
+    
+        </button>
+        <div class="input-group mb-3 shadow p-3 mb-5 bg-body-tertiary rounded" style="margin-top: 20px">
+          <input type="text" class="form-control" placeholder="Please select a function" aria-label="operand(s)"
+            aria-describedby="button-addon2" />
+          <button class="btn btn-outline-secondary bold_text" type="button" id="button-addon2" type="submit">
             GO
           </button>
         </div>
