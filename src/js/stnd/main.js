@@ -127,7 +127,7 @@ function evaluateExpression(postfix){
     
     for(let i = 0; i < postfix.length; i++){
 
-        var next = postfix.at(i);
+        var next = postfix.at(i).trim();
 
         if(next == "+" || next == "-" || next == "*" || next == "/"){
             var right = stack.pop();
