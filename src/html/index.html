@@ -4,22 +4,21 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ETERNITY - Team N</title>
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../style/style.css" />
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="../style/style.js"></script>
   </head>
   <body>
-    <nav class="navbar bg-body-tertiary bold_text">
+    <nav class="navbar bg-body-tertiary bold_text" name="header">
       <div class="container-fluid">
         <a
           class="navbar-brand"
-          href="#"
+          href="index.html"
           style="align-items: center; display: flex; color: #47555e"
         >
           <img src="../assets/images/logo.png"
@@ -34,14 +33,16 @@
         <div class="btn-group dropstart">
           <button
             type="button"
-            class="btn btn-secondary dropdown-toggle bold_text"
+            class="btn dropdown-toggle btn-light bold_text"
             data-bs-toggle="dropdown"
             aria-expanded="false"
+            name="header"
           >
             Settings
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Change Precision</a></li>
+            <li><a class="dropdown-item">Change Precision</a></li>
+            <li><a class="dropdown-item" onclick="changeTheme()">Theme <i id="theme-icon" class="bi bi-sun"></i></a></li>
           </ul>
         </div>
       </div>
@@ -49,14 +50,14 @@
 
     <div class="container mx-auto shadow-sm p-3 mb-5 bg-body-tertiary rounded">
       <div class="row-fluid text-center">
-        <button type="button" id="stdBtn" class="btn btn-secondary std">
+        <button type="button" id="stdBtn" class="btn btn-outline-dark std">
           <math>
             <mi>&#963;(x)
             </mi>
           </math>
         </button>
-        <button type="button" id="madBtn" class="btn btn-secondary mad">MAD</button>
-        <button type="button" id="arccosBtn" class="btn btn-secondary arccos">
+        <button type="button" id="madBtn" class="btn btn-outline-dark mad">MAD</button>
+        <button type="button" id="arccosBtn" class="btn btn-outline-dark arccos">
           <math>
             <mrow>
               <mi>arccos</mi>
@@ -66,7 +67,7 @@
             </mrow>
           </math>
         </button>
-        <button type="button" id="expBtn" class="btn btn-secondary exponent">
+        <button type="button" id="expBtn" class="btn btn-outline-dark exponent">
           <math>
             <msup>
               <mi>x</mi>
@@ -74,7 +75,7 @@
             </msup>
           </math>
         </button>
-        <button type="button" id="growthBtn" class="btn btn-secondary growth">
+        <button type="button" id="growthBtn" class="btn btn-outline-dark growth">
           <math>
             <msup>
               <mrow>
@@ -86,10 +87,10 @@
           </math>
     
         </button>
-        <button type="button" id="logBtn" class="btn btn-secondary log">
+        <button type="button" id="logBtn" class="btn btn-outline-dark log">
           log<sub>b</sub>(x)
         </button>
-        <button type="button" id="sinhBtn" class="btn btn-secondary sinh">
+        <button type="button" id="sinhBtn" class="btn btn-outline-dark sinh">
           <math>
             <mi>sinh</mi>
             <mo>(</mo>
@@ -97,7 +98,6 @@
             <mo>)</mo>
             </sinh>
           </math>
-    
         </button>
         <div class="input-group mb-3 shadow p-3 mb-5 bg-body-tertiary rounded" style="margin-top: 20px">
           <input id="fullInput" type="text" class="form-control" placeholder="Please select a function" aria-label="operand(s)"
@@ -116,7 +116,6 @@
       integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
       crossorigin="anonymous"
     ></script>
-
     <script type="module" src="../js/stnd/main.js"></script>
   </body>
 </html>
