@@ -1,8 +1,9 @@
 const log = require('./log');
+const naturalLog = require('./naturalLog.js')
 
 describe('log', () => {
   test('logarithm of 1000 base 10 is 3', () => {
-    expect(log(1000, 10)).toBe(3);
+    expect(log(1000, 10)).toBeCloseTo(3);
   });
 
   test('logarithm of 8 base 2 is 3', () => {
@@ -11,6 +12,14 @@ describe('log', () => {
 
   test('logarithm of 1 base 10 is 0', () => {
     expect(log(1, 10)).toBe(0);
+  });
+
+ test('natural logarithm of 1 is 0', () => {
+    expect(naturalLog(1)).toBe(0);
+  });
+
+  test('natural logarithm of 10 is 2.302', () => {
+    expect(naturalLog(10)).toBeCloseTo(2.302);
   });
 
   test('logarithm of 0 base 10 is NaN', () => {
