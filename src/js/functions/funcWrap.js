@@ -90,38 +90,38 @@ function exponentiation(base, exponent) {
 }
 
 
-function exponentialGrowth(initialValue, growthFactor, xValue, decimalPlaces){
+function exponentialGrowth(initialValue, growthFactor, xValue) {
 
-    if(growthFactor == 1){
+    if (growthFactor == 1) {
         return initialValue;
     }
 
-    if(xValue == 0){
+    if (xValue == 0) {
         return initialValue;
     }
 
-    if(initialValue == 0){
+    if (initialValue == 0) {
         return 0;
     }
 
-    let growth = exponentiation(growthFactor, xValue); result = 0;
-    if(isNaN(growth)){
+    let growth = exponentiation(growthFactor, xValue);
+    let result = 0;
+    if (isNaN(growth)) {
         return NaN;
     }
 
     result = initialValue * growth;
 
-    return parseFloat(result.toFixed(decimalPlaces));
+    return parseFloat(result.toFixed(PRECISION));
 }
 
+
 function hyperbolicSine(x) {
-    // check for invalid input
-    if(typeof x != 'number') return NaN;
-    
-    let result = (naturalExponentiation(x) - naturalExponentiation(-x))/2;
-    
+    let result = (naturalExponentiation(x) - naturalExponentiation(- x)) / 2;
+
     return parseFloat(result.toPrecision(10));
 }
+
 
 
 
