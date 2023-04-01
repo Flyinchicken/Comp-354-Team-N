@@ -22,7 +22,7 @@ function exponentialGrowth(initialValue, growthFactor, xValue) {
 
     result = initialValue * growth;
 
-    return parseFloat(result.toFixed(PRECISION));
+    return parseFloat(result.toFixed(5));
 }
 
 module.exports = exponentialGrowth
