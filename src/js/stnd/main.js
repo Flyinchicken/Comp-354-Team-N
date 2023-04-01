@@ -108,13 +108,18 @@ function infixToPostfixConvert(input) {
                         stack.push(ch);
                 }
             }
-        } else {
+        } else if(ch == 's' || ch == 'a' || ch == 'g' || ch == 'e' || ch == 'l' || ch == 'm'){
+            var lastIndex = input.indexOf(')', i + 1);
+            postfixBuffer += input.substring(i, lastIndex + 1).trim();
+            i = i + (lastIndex - i);
+        } 
+        else {
             postfixBuffer += ch;
         }
     }
     
     
-    postfixArray.push(postfixBuffer);
+    postfixArray.push(postfixBuffer.trim());
     var len = stack.length;
     for (let j = 0; j < len; j++)
         postfixArray.push(stack.pop());
@@ -173,6 +178,7 @@ function calculate(rightOp, leftOp, operation){
 }
 
 function calcSpecialFunc(funcName, inputs){
+    
     switch(funcName) {
         
         case "sqrt":

@@ -1,3 +1,4 @@
+
 const PRECISION = 5;
 function arccos(ratio){
     if (ratio === -1){
@@ -220,10 +221,16 @@ function std(nums){
         return NaN;
     }
 
+    let floatArray = [];
+
+    nums.forEach(element => {
+        floatArray.push(parseFloat(element));
+    });
+
     let sum = 0, count = 0, mean = 0, std = 0, diff = 0, variance = 0;
     
     //find the mean of the inputs
-    nums.forEach(element => {
+    floatArray.forEach(element => {
         sum += element;
         count++;
     });
@@ -232,12 +239,12 @@ function std(nums){
     sum = 0;
 
     //find the sum of the square of the difference between each element and the mean
-    nums.forEach(element => {
+    floatArray.forEach(element => {
         diff = element - mean;
         sum += diff * diff;
     });
     
-    variance = sum / (nums.length - 1);
+    variance = sum / (floatArray.length - 1);
     std = squareRoot(variance);
 
     return std;
