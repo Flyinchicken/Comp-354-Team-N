@@ -94,23 +94,22 @@ https://wrfranklin.org/Research/Short_Notes/arcsin/top.shtml
  * @returns an angle in radian that corresponds to the input sine value
  */
 function arcsin(ratio){
-
     if(ratio === 0){
         return 0;
     }
 
-    x = abs(ratio);
-    abs_ratio = x;
-    sign = (ratio < 0)? (-1.0) : (1.0);
+    let x = abs(ratio);
+    let abs_ratio = x;
+    let sign = (ratio < 0)? (-1.0) : (1.0);
 
-    result = 1.5707963050;
-    a1 = -0.2145988016;
-    a2 = 0.0889789874;
-    a3 = -0.0501743046;
-    a4 = 0.0308918810;
-    a5 = -0.0170881256;
-    a6 = 0.0066700901;
-    a7 = -0.0012624911;
+    let result = 1.5707963050;
+    let a1 = -0.2145988016;
+    let a2 = 0.0889789874;
+    let a3 = -0.0501743046;
+    let a4 = 0.0308918810;
+    let a5 = -0.0170881256;
+    let a6 = 0.0066700901;
+    let a7 = -0.0012624911;
     result += a1 * x;
     x *= abs_ratio;
     result += a2 * x;
