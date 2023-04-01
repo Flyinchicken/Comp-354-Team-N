@@ -100,7 +100,7 @@ function exponentialGrowth(initialValue, growthFactor, xValue) {
         return initialValue;
     }
 
-    if (initialValue == 0) {
+    if (initialValue == 0 || growthFactor == 0) {
         return 0;
     }
 
