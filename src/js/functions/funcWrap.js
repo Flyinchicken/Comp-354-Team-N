@@ -21,8 +21,8 @@ function arcsin(ratio){
         return 0;
     }
 
-    x = (ratio < 0)? (-1.0 * ratio) : ratio;
-    abs_ratio = (ratio < 0)? (-1.0 * ratio) : ratio;
+    x = abs(ratio);
+    abs_ratio = x;
     sign = (ratio < 0)? (-1.0) : (1.0);
 
     result = 1.5707963050;
@@ -34,17 +34,17 @@ function arcsin(ratio){
     a6 = 0.0066700901;
     a7 = -0.0012624911;
     result += a1 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a2 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a3 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a4 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a5 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a6 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a7 * x;
     result *= squareRoot(1 - abs_ratio);
     result = PI/2 - result;
@@ -143,7 +143,7 @@ function naturalLog(number) { // log of non-positive number is undefined
     do {
         prevGuess = guess;
         guess = guess - 1 + number * naturalExponentiation(- guess);
-    } while (Math.abs(guess - prevGuess) > error);
+    } while (abs(guess - prevGuess) > error);
 
     return guess;
 }
@@ -180,10 +180,7 @@ function mad(input) {
 }
 
 function abs(num) {
-    if (num < 0) {
-        return -1 * num;
-    } 
-    return num;
+    return (num < 0) ? -num : num;
 }
 
 function squareRoot(num){

@@ -1,4 +1,5 @@
 const naturalExponentiation = require("./naturalExponentiation.js");
+const abs = require("./abs");
 
 function naturalLog(number) {
     // log of non-positive number is undefined
@@ -14,7 +15,7 @@ function naturalLog(number) {
   do {
     prevGuess = guess;
     guess = guess - 1 + number*naturalExponentiation(-guess);
-  } while (Math.abs(guess - prevGuess) > error);
+  } while (abs(guess - prevGuess) > error);
 
   return guess;
 }

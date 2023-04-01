@@ -1,4 +1,5 @@
 const squareRoot = require("./squareRoot");
+const abs = require("./abs");
 /*
 Analysis of arc cosine function
 
@@ -99,8 +100,8 @@ function arcsin(ratio){
         return 0;
     }
 
-    x = (ratio < 0)? (-1.0 * ratio) : ratio;
-    abs_ratio = (ratio < 0)? (-1.0 * ratio) : ratio;
+    x = abs(ratio);
+    abs_ratio = x;
     sign = (ratio < 0)? (-1.0) : (1.0);
 
     result = 1.5707963050;
@@ -112,17 +113,17 @@ function arcsin(ratio){
     a6 = 0.0066700901;
     a7 = -0.0012624911;
     result += a1 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a2 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a3 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a4 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a5 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a6 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a7 * x;
     result *= squareRoot(1 - abs_ratio);
     result = PI/2 - result;
