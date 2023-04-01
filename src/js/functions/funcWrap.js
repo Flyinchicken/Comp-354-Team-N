@@ -1,6 +1,7 @@
+const PRECISION = 5;
 function arccos(ratio){
     if (ratio === -1){
-        return PI.toFixed(PRECISION);
+        return Math.PI.toFixed(PRECISION);
     }
 
     if (ratio === 1){
@@ -11,7 +12,7 @@ function arccos(ratio){
         return NaN;
     }
 
-    return (PI/2 - arcsin(ratio));
+    return (Math.PI/2 - arcsin(ratio));
 }
 
 function arcsin(ratio){
@@ -20,8 +21,8 @@ function arcsin(ratio){
         return 0;
     }
 
-    x = (ratio < 0)? (-1.0 * ratio) : ratio;
-    abs_ratio = (ratio < 0)? (-1.0 * ratio) : ratio;
+    x = abs(ratio);
+    abs_ratio = x;
     sign = (ratio < 0)? (-1.0) : (1.0);
 
     result = 1.5707963050;
@@ -33,55 +34,62 @@ function arcsin(ratio){
     a6 = 0.0066700901;
     a7 = -0.0012624911;
     result += a1 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a2 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a3 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a4 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a5 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a6 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a7 * x;
     result *= squareRoot(1 - abs_ratio);
-    result = PI/2 - result;
+    result = Math.PI/2 - result;
 
     return (sign * result);
 }
 
 function exponentiation(base, exponent) {
-    if (exponent === 0) {
-        if (base === 0) {
-            return NaN;
-        }
+
+    base = parseFloat(base);
+    exponent = parseFloat(exponent);
+    if (base === 0 && exponent <= 0)
+        return NaN;
+    
+    if (base === 0) 
+        return 0;
+
+    if (base === 1 || exponent === 0) 
         return 1;
+
+    if (exponent === 1) 
+        return base;
+
+    if (!Number.isInteger(exponent)) {
+        if (base === 1 / Math.E) 
+            exponent = - exponent;
+         else if (base !== Math.E) 
+            exponent = exponent * naturalLog(base);
+        
+        return naturalExponentiation(exponent);
     }
+
     if (exponent < 0) {
-        if (base === 0) {
-            return NaN;
-        }
         exponent = - exponent;
         base = 1 / base;
     }
+
     let result = base;
     for (let i = 1; i < exponent; i++) {
         result *= base;
     }
-    result = formatToMinDecPlaces(result);
+    
     return result;
 }
 
-function formatToMinDecPlaces(resultToFormat, minDecPlaces = 4, maxDecPlaces = 8) {
-    let formattedResult = resultToFormat.toFixed(minDecPlaces);
-    let resultToFormatString = resultToFormat.toString();
-    if (resultToFormatString.length > formattedResult.length) {
-        resultToFormat = resultToFormat.toFixed(maxDecPlaces);
-        formattedResult = resultToFormat;
-    }
-    return formattedResult;
-}
 
 function exponentialGrowth(initialValue, growthFactor, xValue, decimalPlaces){
 
@@ -97,8 +105,7 @@ function exponentialGrowth(initialValue, growthFactor, xValue, decimalPlaces){
         return 0;
     }
 
-    let growth = exponentiation(growthFactor, xValue); 
-    let result = 0;
+    let growth = exponentiation(growthFactor, xValue); result = 0;
     if(isNaN(growth)){
         return NaN;
     }
@@ -112,41 +119,59 @@ function hyperbolicSine(x) {
     // check for invalid input
     if(typeof x != 'number') return NaN;
     
-    let result = (Math.exp(x) - Math.exp(-x))/2;
+    let result = (naturalExponentiation(x) - naturalExponentiation(-x))/2;
     
     return parseFloat(result.toPrecision(10));
 }
 
+
+
 function log(x, base) {
     // check for invalid input
     if (x <= 0 || base <= 0 || base === 1) {
-      return NaN;
+        return NaN;
     }
-  
-    let result = 0;
-    while (x >= base) {
-      x /= base;
-      result++;
+    
+    return naturalLog(x)/naturalLog(base);
+}
+
+function naturalLog(number) {
+    // log of non-positive number is undefined
+  if (number <= 0) return NaN;
+
+  if (number === 1) return 0;
+
+  let guess = 10; // initial guess
+  let error = 1e-10; // desired precision
+  let prevGuess; // store previous guess
+
+  // keep iterating until desired precision is reached
+  do {
+    prevGuess = guess;
+    guess = guess - 1 + number*naturalExponentiation(-guess);
+  } while (abs(guess - prevGuess) > error);
+
+  return guess;
+}
+
+
+function naturalExponentiation(exponent) {
+    if(exponent === 1) return Math.E;
+
+    if(exponent === 0) return 1;
+
+    if(exponent === -1) return 1/Math.E;
+
+    let result = 1;
+    let term = 1;
+
+    for (let n = 1; n <= 2000; n++) {
+        term *= exponent/n;
+        result += term;
     }
-  
-    let fractional = 0;
-    let multiplier = 1.15;
-    const MAX_ITERATIONS = 100;
-    let i = 0;
-    while (x !== 1 && i < MAX_ITERATIONS) {
-      if (x < 1) {
-        x *= base;
-        fractional -= multiplier;
-      } else {
-        x /= base;
-        fractional += multiplier;
-      }
-      multiplier /= 2;
-      i++;
-    }
-  
-    return result + fractional;
-  }
+
+    return result
+}
 
 function mad(input) {
     const numbers = input.split(',').map(Number); // string of numbers to array of numbers
@@ -159,10 +184,7 @@ function mad(input) {
 }
 
 function abs(num) {
-    if (num < 0) {
-        return -1 * num;
-    } 
-    return num;
+    return (num < 0) ? -num : num;
 }
 
 function squareRoot(num){

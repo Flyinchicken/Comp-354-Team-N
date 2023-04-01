@@ -1,4 +1,5 @@
 const squareRoot = require("./squareRoot");
+const abs = require("./abs");
 /*
 Analysis of arc cosine function
 
@@ -16,7 +17,6 @@ of the arcsin function as the sum of arccos and arcsin is always pi/2. Detailed 
 found in the manuscript.
 */
 
-const PI = 3.1415926358979;
 const PRECISION = 5;
 /**
  * Calculate the angle in radian for a given input cosine value
@@ -25,7 +25,7 @@ const PRECISION = 5;
  */
 function arccos(ratio){
     if (ratio === -1){
-        return PI.toFixed(PRECISION);
+        return Math.PI.toFixed(PRECISION);
     }
 
     if (ratio === 1){
@@ -36,7 +36,7 @@ function arccos(ratio){
         return NaN;
     }
 
-    return (PI/2 - arcsin(ratio));
+    return (Math.PI/2 - arcsin(ratio));
 }
 
 /*
@@ -99,8 +99,8 @@ function arcsin(ratio){
         return 0;
     }
 
-    x = (ratio < 0)? (-1.0 * ratio) : ratio;
-    abs_ratio = (ratio < 0)? (-1.0 * ratio) : ratio;
+    x = abs(ratio);
+    abs_ratio = x;
     sign = (ratio < 0)? (-1.0) : (1.0);
 
     result = 1.5707963050;
@@ -112,20 +112,20 @@ function arcsin(ratio){
     a6 = 0.0066700901;
     a7 = -0.0012624911;
     result += a1 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a2 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a3 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a4 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a5 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a6 * x;
-    x *= x;
+    x *= abs_ratio;
     result += a7 * x;
     result *= squareRoot(1 - abs_ratio);
-    result = PI/2 - result;
+    result = Math.PI/2 - result;
 
     return (sign * result);
 }
