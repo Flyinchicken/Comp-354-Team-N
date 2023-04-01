@@ -185,7 +185,7 @@ function calcSpecialFunc(funcName, inputs){
         
         case "growth":
             var spread = inputs.split(",");
-            return exponentialGrowth(spread[0], spread[1], spread[2], 10);
+            return exponentialGrowth(spread[0], spread[1], spread[2]);
             break;
             
         case "exp":
