@@ -17,7 +17,6 @@ of the arcsin function as the sum of arccos and arcsin is always pi/2. Detailed 
 found in the manuscript.
 */
 
-const PI = 3.1415926358979;
 const PRECISION = 5;
 /**
  * Calculate the angle in radian for a given input cosine value
@@ -26,7 +25,7 @@ const PRECISION = 5;
  */
 function arccos(ratio){
     if (ratio === -1){
-        return PI.toFixed(PRECISION);
+        return Math.PI.toFixed(PRECISION);
     }
 
     if (ratio === 1){
@@ -37,7 +36,7 @@ function arccos(ratio){
         return NaN;
     }
 
-    return (PI/2 - arcsin(ratio));
+    return (Math.PI/2 - arcsin(ratio));
 }
 
 /*
@@ -126,7 +125,7 @@ function arcsin(ratio){
     x *= abs_ratio;
     result += a7 * x;
     result *= squareRoot(1 - abs_ratio);
-    result = PI/2 - result;
+    result = Math.PI/2 - result;
 
     return (sign * result);
 }

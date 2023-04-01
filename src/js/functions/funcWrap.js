@@ -1,7 +1,7 @@
 const PRECISION = 5;
 function arccos(ratio){
     if (ratio === -1){
-        return PI.toFixed(PRECISION);
+        return Math.PI.toFixed(PRECISION);
     }
 
     if (ratio === 1){
@@ -12,7 +12,7 @@ function arccos(ratio){
         return NaN;
     }
 
-    return (PI/2 - arcsin(ratio)).toFixed(PRECISION);
+    return (Math.PI/2 - arcsin(ratio));
 }
 
 function arcsin(ratio){
@@ -47,12 +47,13 @@ function arcsin(ratio){
     x *= abs_ratio;
     result += a7 * x;
     result *= squareRoot(1 - abs_ratio);
-    result = PI/2 - result;
+    result = Math.PI/2 - result;
 
     return (sign * result);
 }
 
 function exponentiation(base, exponent) {
+
     base = parseFloat(base);
     exponent = parseFloat(exponent);
     if (base === 0 && exponent <= 0)
@@ -73,7 +74,7 @@ function exponentiation(base, exponent) {
          else if (base !== Math.E) 
             exponent = exponent * naturalLog(base);
         
-        return naturalExponentiation(exponent).toFixed(PRECISION);
+        return naturalExponentiation(exponent);
     }
 
     if (exponent < 0) {
@@ -85,84 +86,87 @@ function exponentiation(base, exponent) {
     for (let i = 1; i < exponent; i++) {
         result *= base;
     }
-
-    return result.toFixed(PRECISION);
+    
+    return result;
 }
 
 
 function exponentialGrowth(initialValue, growthFactor, xValue, decimalPlaces){
-    if(growthFactor == 1)
-        return initialValue;
 
-    if(xValue == 0)
+    if(growthFactor == 1){
         return initialValue;
+    }
 
-    if(initialValue == 0)
+    if(xValue == 0){
+        return initialValue;
+    }
+
+    if(initialValue == 0){
         return 0;
-    
-    let growth = exponentiation(growthFactor, xValue); 
-    let result = 0;
-    if(isNaN(growth))
+    }
+
+    let growth = exponentiation(growthFactor, xValue); result = 0;
+    if(isNaN(growth)){
         return NaN;
+    }
 
     result = initialValue * growth;
+
     return parseFloat(result.toFixed(decimalPlaces));
 }
 
-function hyperbolicSine(x) { // check for invalid input
-    if (typeof x != 'number') 
-        return NaN;
-
-    let result = (naturalExponentiation(x) - naturalExponentiation(- x)) / 2;
-
+function hyperbolicSine(x) {
+    // check for invalid input
+    if(typeof x != 'number') return NaN;
+    
+    let result = (naturalExponentiation(x) - naturalExponentiation(-x))/2;
+    
     return parseFloat(result.toPrecision(10));
 }
 
 
-function log(x, base) { // check for invalid input
+
+function log(x, base) {
+    // check for invalid input
     if (x <= 0 || base <= 0 || base === 1) {
         return NaN;
     }
-
-    return (naturalLog(x) / naturalLog(base)).toFixed(PRECISION);
+    
+    return naturalLog(x)/naturalLog(base);
 }
 
-function naturalLog(number) { // log of non-positive number is undefined
-    if (number <= 0) 
-        return NaN;
+function naturalLog(number) {
+    // log of non-positive number is undefined
+  if (number <= 0) return NaN;
 
-    if (number === 1) 
-        return 0;
+  if (number === 1) return 0;
 
-    let guess = 10; // initial guess
-    let error = 1e-10; // desired precision
-    let prevGuess;
-    // store previous guess
+  let guess = 10; // initial guess
+  let error = 1e-10; // desired precision
+  let prevGuess; // store previous guess
 
-    // keep iterating until desired precision is reached
-    do {
-        prevGuess = guess;
-        guess = guess - 1 + number * naturalExponentiation(- guess);
-    } while (abs(guess - prevGuess) > error);
+  // keep iterating until desired precision is reached
+  do {
+    prevGuess = guess;
+    guess = guess - 1 + number*naturalExponentiation(-guess);
+  } while (abs(guess - prevGuess) > error);
 
-    return guess;
+  return guess;
 }
+
 
 function naturalExponentiation(exponent) {
-    if (exponent === 1) 
-        return Math.E;
-    
-    if (exponent === 0) 
-        return 1;
-    
-    if (exponent === -1) 
-        return 1 / Math.E;
-    
+    if(exponent === 1) return Math.E;
+
+    if(exponent === 0) return 1;
+
+    if(exponent === -1) return 1/Math.E;
+
     let result = 1;
     let term = 1;
 
     for (let n = 1; n <= 2000; n++) {
-        term *= exponent / n;
+        term *= exponent/n;
         result += term;
     }
 
@@ -176,7 +180,7 @@ function mad(input) {
     const absoluteDeviations = numbers.map((num) => abs(num - mean));
     const mad = absoluteDeviations.reduce((partialSum, a) => partialSum + a, 0) / numbers.length;
 
-    return mad.toFixed(PRECISION);
+    return mad;
 }
 
 function abs(num) {
