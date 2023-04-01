@@ -9,33 +9,35 @@ const naturalLog = require("./naturalLog.js");
  */
 function exponentiation(base, exponent) {
 
-    if (typeof base != 'number' || typeof exponent != 'number') return NaN;
+    base = parseFloat(base);
+    exponent = parseFloat(exponent);
+    if (base === 0 && exponent <= 0)
+        return NaN;
     
-    if (base === 0 && exponent <= 0)  return NaN;
-    
-    if (base === 0) return 0;
+    if (base === 0) 
+        return 0;
 
-    if (base === 1 || exponent === 0) return 1;
+    if (base === 1 || exponent === 0) 
+        return 1;
 
-    if (exponent === 1) return base;
+    if (exponent === 1) 
+        return base;
 
     if (!Number.isInteger(exponent)) {
-        
-        if (base === 1/Math.E)
-            exponent = -exponent;
-        else if (base !== Math.E) 
-            exponent = exponent*naturalLog(base);
+        if (base === 1 / Math.E) 
+            exponent = - exponent;
+         else if (base !== Math.E) 
+            exponent = exponent * naturalLog(base);
         
         return naturalExponentiation(exponent);
     }
 
     if (exponent < 0) {
-        exponent = -exponent;
+        exponent = - exponent;
         base = 1 / base;
     }
 
     let result = base;
-
     for (let i = 1; i < exponent; i++) {
         result *= base;
     }
