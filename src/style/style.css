@@ -1,3 +1,30 @@
+.img-logo {
+    width: 60px;
+    height: 60px;
+}
+
+.navbar-brand {
+    color: #47555e;
+    position: relative;
+    display: inline-block;
+    font-size: 1.8rem;
+}
+
+.navbar-brand::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0.1rem;
+    background-color: #000;
+    animation: eternity-loading 2.5s ease-in-out infinite;
+}
+
+.navbar-brand:hover {
+    color: #4a555bda;
+}
+
 .container {
     width: auto;
     max-width: 900px;
@@ -6,6 +33,16 @@
     border-radius: 10px;
 }
 
-.bold_text {
-    font-weight: bold;
+@keyframes eternity-loading {
+    0% {
+        width: 0%;
+    }
+
+    50% {
+        width: 75%;
+    }
+
+    100% {
+        width: 0%;
+    }
 }

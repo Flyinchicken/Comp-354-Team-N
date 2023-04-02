@@ -16,36 +16,44 @@
 </head>
 
 <body>
-  <nav class="navbar bg-body-tertiary bold_text" name="header">
+  <nav class="navbar bg-body-tertiary fw-bold" name="header">
     <div class="container-fluid">
-      <a class="navbar-brand" href="index.html" style="align-items: center; display: flex; color: #47555e">
-        <img src="../assets/images/logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top"
-          style="margin-right: 10px" />
-        ETERNITY - Team N
+      <a href="index.html">
+        <img class="img-logo" src="../assets/images/logo.png" alt="Logo" />
       </a>
+      <div class="navbar-brand">
+        ETERNITY
+      </div>
       <div class="btn-group dropstart">
-        <button type="button" class="btn dropdown-toggle btn-light bold_text" data-bs-toggle="dropdown"
+        <button type="button" class="btn dropdown-toggle btn-light fw-bold" data-bs-toggle="dropdown"
           aria-expanded="false" name="header">
           Settings
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item">Change Precision</a></li>
-          <li><a class="dropdown-item" onclick="changeTheme()">Theme <i id="theme-icon" class="bi bi-sun"></i></a></li>
+          <li>
+            <button class="dropdown-item">Change Precision <i class="bi bi-gear"></i></button>
+          </li>
+          <li>
+            <button class="dropdown-item" id="change-theme">Theme <i id="theme-icon" class="bi bi-sun"></i></button>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <div class="container mx-auto shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+  <div class="container mx-auto shadow-sm p-3 mb-5 bg-body-tertiary bg-gradient rounded">
     <div class="row-fluid text-center">
-      <button type="button" id="stdBtn" class="btn btn-outline-dark std">
+      <button type="button" id="stdBtn" class="btn btn-outline-dark me-2 mb-2 mt-2">
         <math>
-          <mi>&#963;(x)
-          </mi>
+          <mi>&#963;(x)</mi>
         </math>
       </button>
-      <button type="button" id="madBtn" class="btn btn-outline-dark mad">MAD</button>
-      <button type="button" id="arccosBtn" class="btn btn-outline-dark arccos">
+      <button type="button" id="madBtn" class="btn btn-outline-dark mx-2 mb-2 mt-2">
+        <math>
+          <mi>MAD</mi>
+        </math>
+      </button>
+      <button type="button" id="arccosBtn" class="btn btn-outline-dark mx-2 mb-2 mt-2">
         <math>
           <mrow>
             <mi>arccos</mi>
@@ -55,7 +63,7 @@
           </mrow>
         </math>
       </button>
-      <button type="button" id="expBtn" class="btn btn-outline-dark exponent">
+      <button type="button" id="expBtn" class="btn btn-outline-dark mx-2 mb-2 mt-2">
         <math>
           <msup>
             <mi>x</mi>
@@ -63,7 +71,7 @@
           </msup>
         </math>
       </button>
-      <button type="button" id="growthBtn" class="btn btn-outline-dark growth">
+      <button type="button" id="growthBtn" class="btn btn-outline-dark mx-2 mb-2 mt-2">
         <math>
           <msup>
             <mrow>
@@ -73,12 +81,11 @@
             <mi>x</mi>
           </msup>
         </math>
-
       </button>
-      <button type="button" id="logBtn" class="btn btn-outline-dark log">
+      <button type="button" id="logBtn" class="btn btn-outline-dark mx-2 mb-2 mt-2">
         log<sub>b</sub>(x)
       </button>
-      <button type="button" id="sinhBtn" class="btn btn-outline-dark sinh">
+      <button type="button" id="sinhBtn" class="btn btn-outline-dark ms-2 mb-2 mt-2">
         <math>
           <mi>sinh</mi>
           <mo>(</mo>
@@ -87,18 +94,19 @@
           </sinh>
         </math>
       </button>
-      <div class="input-group mb-3 shadow p-3 mb-5 bg-body-tertiary rounded" style="margin-top: 20px">
+      <div class="input-group shadow p-3 my-4">
         <input id="fullInput" type="text" class="form-control" placeholder="Please select a function"
           aria-label="operand(s)" aria-describedby="button-addon2" />
-        <button class="btn btn-outline-secondary bold_text" type="button" id="button-addon2" type="submit">
-          GO
+        <button type="submit" id="button-addon2" class="btn btn-outline-dark fw-bold" type="button">
+          Calculate!
         </button>
       </div>
     </div>
   </div>
-  <div id="historyDiv" class="container mx-auto shadow-sm p-3 mb-5 bg-body-tertiary rounded">
-    <p class="bold_text">History</p>
+  <div id="historyDiv" class="container mx-auto shadow-sm bg-body-tertiary">
+    <p class="fw-bold">History</p>
   </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
     crossorigin="anonymous"></script>
