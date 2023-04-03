@@ -1,5 +1,10 @@
-
 const PRECISION = 5;
+
+/**
+ * Calculate the angle in radian for a given input cosine value
+ * @param {number} ratio a real number within [-1,1], representing the cosine value
+ * @returns {number} an angle in radian that corresponds to the input cosine value
+ */
 function arccos(ratio){
     if (ratio === -1){
         return Math.PI.toFixed(PRECISION);
@@ -16,6 +21,11 @@ function arccos(ratio){
     return (Math.PI/2 - arcsin(ratio));
 }
 
+/**
+ * Calculate the angle in radian for a given input sine value
+ * @param {number} ratio ratio a real number within [-1,1], representing the sine value
+ * @returns an angle in radian that corresponds to the input sine value
+ */
 function arcsin(ratio){
     if(ratio === 0){
         return 0;
@@ -52,6 +62,12 @@ function arcsin(ratio){
     return (sign * result);
 }
 
+/**
+ * Exponentiation function that raises the base to the given exponent.
+ * @param {number} base The number to be raised
+ * @param {number} exponent The power to which the base should be raised
+ * @returns {string} result of the base raised to the exponent
+ */
 function exponentiation(base, exponent) {
 
     base = parseFloat(base);
@@ -90,7 +106,13 @@ function exponentiation(base, exponent) {
     return result;
 }
 
-
+/**
+ * Calculate the exponential growth at point x given growth factor and initial value
+ * @param {number} initialValue Initial value of the function at x = 0
+ * @param {number} growthFactor Factor at which the function growth/decays
+ * @param {number} xValue Point at which we want to calculate
+ * @returns {number} Amount at x
+ */
 function exponentialGrowth(initialValue, growthFactor, xValue) {
 
     if (growthFactor == 1) {
@@ -116,16 +138,23 @@ function exponentialGrowth(initialValue, growthFactor, xValue) {
     return parseFloat(result.toFixed(5));
 }
 
-
+/**
+ * Calculate the hyperbolic sin at a given point
+ * @param {number} x Point at which we want to calculate
+ * @returns {number} Value of the hyperbolic sin at x
+ */
 function hyperbolicSine(x) {
     let result = (naturalExponentiation(x) - naturalExponentiation(- x)) / 2;
 
     return parseFloat(result.toPrecision(10));
 }
 
-
-
-
+/**
+ * Calculate the logarithm of x with a specific base
+ * @param {number} x Point at which we want to calculate
+ * @param {number} base Base of the logarithm
+ * @returns {number} Value of the logarithm
+ */
 function log(x, base) {
     // check for invalid input
     if (x <= 0 || base <= 0 || base === 1) {
@@ -135,6 +164,11 @@ function log(x, base) {
     return naturalLog(x)/naturalLog(base);
 }
 
+/**
+ * Calculate the natural logarithm (e) of x
+ * @param {number} number Point at which we want to calculate
+ * @returns {number} Value of the natural log
+ */
 function naturalLog(number) {
     // log of non-positive number is undefined
   if (number <= 0) return NaN;
@@ -154,7 +188,11 @@ function naturalLog(number) {
   return guess;
 }
 
-
+/**
+ * Calculate the natural exponent of x with base e
+ * @param {number} exponent Point at which we want to calculate
+ * @returns {number} Value of the e^exponent
+ */
 function naturalExponentiation(exponent) {
     if(exponent === 1) return Math.E;
 
@@ -173,6 +211,11 @@ function naturalExponentiation(exponent) {
     return result
 }
 
+/**
+ * Calculate the MAD (Median Absolute Deviation) of a series of numbers
+ * @param {string} input String of inputs separated by commas
+ * @returns {number} The MAD
+ */
 function mad(input) {
     const numbers = input.split(',').map(Number); // string of numbers to array of numbers
     const sum = numbers.reduce((partialSum, num) => partialSum + num, 0);
@@ -183,10 +226,19 @@ function mad(input) {
     return mad;
 }
 
+/**
+ * Calculate the absolute value of a number
+ * @param {number} num Number that we want to absolute value of
+ * @returns {number} Positive number
+ */
 function abs(num) {
     return (num < 0) ? -num : num;
 }
 
+/**
+@param {number} num a positive target number of square root
+@returns {number} the positive square root of the input
+ */
 function squareRoot(num){
     if(num < 0){
         return NaN;
@@ -216,6 +268,10 @@ function squareRoot(num){
     return sqrt;
 }
 
+/**
+ * @param {number[]} nums an array of integers
+ * @returns {number} the standard deviation of the array of integers
+ */
 function std(nums){
     if(! Array.isArray(nums) || nums.length < 2){ //Ignore invalid inputs
         return NaN;
