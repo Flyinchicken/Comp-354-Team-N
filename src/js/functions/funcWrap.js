@@ -1,4 +1,4 @@
-const PRECISION = 5;
+import { precision } from "../stnd/main.js";
 
 /**
  * Calculate the angle in radian for a given input cosine value
@@ -7,18 +7,19 @@ const PRECISION = 5;
  */
 function arccos(ratio){
     if (ratio === -1){
-        return Math.PI.toFixed(PRECISION);
+        return Math.PI.toFixed(precision);
     }
 
     if (ratio === 1){
-        return 0.0.toFixed(PRECISION);
+        return 0.0.toFixed(precision);
     }
+
     ratio = parseFloat(ratio);
     if((ratio - 1.000000000000000) > 0 || (ratio + 1.000000000000000) < 0){
         return NaN;
     }
 
-    return (Math.PI/2 - arcsin(ratio));
+    return parseFloat((Math.PI/2 - arcsin(ratio)).toFixed(precision));
 }
 
 /**
@@ -103,7 +104,7 @@ function exponentiation(base, exponent) {
         result *= base;
     }
     
-    return result;
+    return parseFloat(result.toFixed(precision));
 }
 
 /**
@@ -135,7 +136,7 @@ function exponentialGrowth(initialValue, growthFactor, xValue) {
 
     result = initialValue * growth;
 
-    return parseFloat(result.toFixed(5));
+    return parseFloat(result.toFixed(precision));
 }
 
 /**
@@ -145,8 +146,7 @@ function exponentialGrowth(initialValue, growthFactor, xValue) {
  */
 function hyperbolicSine(x) {
     let result = (naturalExponentiation(x) - naturalExponentiation(- x)) / 2;
-
-    return parseFloat(result.toPrecision(10));
+    return parseFloat(result.toPrecision(precision));
 }
 
 /**
@@ -161,7 +161,7 @@ function log(x, base) {
         return NaN;
     }
     
-    return naturalLog(x)/naturalLog(base);
+    return parseFloat((naturalLog(x)/naturalLog(base)).toFixed(precision));
 }
 
 /**
@@ -223,7 +223,7 @@ function mad(input) {
     const absoluteDeviations = numbers.map((num) => abs(num - mean));
     const mad = absoluteDeviations.reduce((partialSum, a) => partialSum + a, 0) / numbers.length;
 
-    return mad;
+    return parseFloat(mad.toFixed(precision));
 }
 
 /**
@@ -246,9 +246,9 @@ function squareRoot(num){
         return num;
     }
 
-    let sqrt = num, precision = Number.MIN_VALUE, diff = 1, square = 0, prev = 0;
+    let sqrt = num, precisionX = Number.MIN_VALUE, diff = 1, square = 0, prev = 0;
 
-    while(diff > precision){
+    while(diff > precisionX){
         prev = sqrt;
         sqrt = (sqrt + num / sqrt) / 2;
         diff = prev - sqrt;
@@ -257,7 +257,7 @@ function squareRoot(num){
             diff *= -1;
         }
 
-        if(diff <= precision){ //avoid unnecessary narrowing
+        if(diff <= precisionX){ //avoid unnecessary narrowing
             break;
         }
 
@@ -265,7 +265,7 @@ function squareRoot(num){
         diff = square - num;
     }
 
-    return sqrt;
+    return parseFloat(sqrt.toFixed(precision));
 }
 
 /**
@@ -303,7 +303,7 @@ function std(nums){
     variance = sum / (floatArray.length - 1);
     std = squareRoot(variance);
 
-    return std;
+    return parseFloat(std.toFixed(precision));
 }
 
 export { squareRoot, arccos, arcsin, exponentialGrowth, exponentiation, hyperbolicSine, log, mad, std };

@@ -1,6 +1,10 @@
 import { str, num, multiplyNumbers } from '../stnd/test.js'
 import { squareRoot, arccos, arcsin, exponentialGrowth, exponentiation, hyperbolicSine, log, mad, std } from '../functions/funcWrap.js'
 
+var precision = 5;
+
+export { precision };
+
 //Attaching functions to their respective buttons post load dynamically
 $(document).ready(function(){
     $("#button-addon2").click(inputProcessing);
@@ -72,7 +76,7 @@ function inputProcessing(){
     $("#result").empty();
     $("#result").show();
     $("#result").text(fullInput + " = " + result);
-    $("#historyDiv").append("<p>" + fullInput + " = " + result + "</p>");
+    $("#historySec").prepend("<p>" + fullInput + " = " + result + "</p>");
 }
 
 /**
@@ -190,6 +194,7 @@ function evaluateExpression(postfix){
     
     var finalResult = stack.pop();
     if(isNaN(finalResult) || typeof finalResult === 'string' || finalResult instanceof String){
+        console.log("stupid");
         return "Invalid expression: " + finalResult;
     }
 
