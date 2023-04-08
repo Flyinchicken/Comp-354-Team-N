@@ -69,7 +69,10 @@ function inputProcessing(){
     var result = evaluateExpression(postfix);
     console.log(result);
 
-    $("#historyDiv").append("<p>" + result + "</p>");
+    $("#result").empty();
+    $("#result").show();
+    $("#result").text(fullInput + " = " + result);
+    $("#historyDiv").append("<p>" + fullInput + " = " + result + "</p>");
 }
 
 /**
