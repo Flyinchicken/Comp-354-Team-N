@@ -2,11 +2,12 @@ $(document).ready(function () {
     $("#change-theme").click(changeTheme);
 });
 
-const excludedElements = document.getElementsByClassName("header");
+const excludedNavbarElements = document.getElementsByClassName("header");
 
 function changeTheme() {
     const elements = document.querySelectorAll('*');
     const themeIcon = document.getElementById('theme-icon');
+    const excludedResultElement = document.getElementById("result");
     elements.forEach(element => {
         if (element.getAttribute("data-bs-theme") === "dark") {
             element.setAttribute("data-bs-theme", "light"); // Set to light mode
@@ -23,12 +24,14 @@ function changeTheme() {
         }
     });
 
-    // console.log(excludedElements);
-
-    for (let i = 0; i < excludedElements.length; i++) {
-        excludedElements[i].setAttribute("data-bs-theme", "light");
-        excludedElements[i].classList.toggle("bg-dark-subtle");
+    for (let i = 0; i < excludedNavbarElements.length; i++) {
+        excludedNavbarElements[i].setAttribute("data-bs-theme", "light");
+        excludedNavbarElements[i].classList.toggle("bg-dark-subtle");
     }
+
+    // Set the background-color of the display area for the current calculation
+    excludedResultElement.classList.toggle("result");
+    excludedResultElement.classList.toggle("result-dark");
 
     // Change theme icon
     themeIcon.classList.toggle("bi-sun");
