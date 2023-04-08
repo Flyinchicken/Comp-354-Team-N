@@ -1,3 +1,9 @@
+#result {
+    background: #7bde70;
+    display: none;
+    text-align: left;
+}
+
 .img-logo {
     width: 60px;
     height: 60px;
