@@ -1,5 +1,7 @@
 import { str, num, multiplyNumbers } from '../stnd/test.js'
-import { squareRoot, arccos, arcsin, exponentialGrowth, exponentiation, hyperbolicSine, log, mad, std } from '../functions/funcWrap.js'
+import { MathFunctions } from '../functions/funcWrap.js'
+
+const myFunctions = new MathFunctions();
 
 var precision = 5;
 
@@ -67,11 +69,11 @@ function arccosBtnPress(){
  */
 function inputProcessing(){
     var fullInput = $("#fullInput").val();
-    console.log(fullInput);
+    //console.log(fullInput);
     var postfix = infixToPostfixConvert(fullInput);
-    console.log(postfix);
+    //console.log(postfix);
     var result = evaluateExpression(postfix);
-    console.log(result);
+    //console.log(result);
 
     $("#result").empty();
     $("#result").show();
@@ -243,38 +245,38 @@ function calcSpecialFunc(funcName, inputs){
     switch(funcName) {
         
         case "sqrt":
-            return squareRoot(inputs);
+            return myFunctions.squareRoot(inputs);
             break;
         
         case "arccos":
-            return arccos(inputs);
+            return myFunctions.arccos(inputs);
             break;
         
         case "growth":
             var spread = inputs.split(",");
-            return exponentialGrowth(spread[0], spread[1], spread[2]);
+            return myFunctions.exponentialGrowth(spread[0], spread[1], spread[2]);
             break;
             
         case "exp":
             var spread = inputs.split(",");
-            return exponentiation(spread[0], spread[1]);
+            return myFunctions.exponentiation(spread[0], spread[1]);
             break;
         
         case "sinh":
-            return hyperbolicSine(inputs);
+            return myFunctions.hyperbolicSine(inputs);
             break;
         
         case "log":
             var spread = inputs.split(",");
-            return log(spread[0], spread[1]);
+            return myFunctions.log(spread[0], spread[1]);
             break;
         
         case "mad":
-            return mad(inputs);
+            return myFunctions.mad(inputs);
             break;
 
         case "std":
-            return std(inputs.split(","));
+            return myFunctions.std(inputs.split(","));
             break;
 
         default:
