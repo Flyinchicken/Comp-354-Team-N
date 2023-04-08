@@ -15,27 +15,25 @@
 </head>
 
 <body>
-  <nav class="navbar bg-body-tertiary fw-bold" name="header">
+  <nav class="navbar bg-body-tertiary fw-bold row-fluid header">
     <div class="container-fluid">
-      <a href="index.html">
+      <a class="col-4" href="index.html">
         <img class="img-logo" src="../assets/images/logo.png" alt="Logo" />
       </a>
-      <div class="navbar-brand">
-        ETERNITY
+      <div class="col-4 d-flex justify-content-center">
+        <div class="navbar-brand">
+          ETERNITY
+        </div>
       </div>
-      <div class="btn-group dropstart">
-        <button type="button" class="btn dropdown-toggle btn-light fw-bold" data-bs-toggle="dropdown"
-          aria-expanded="false" name="header">
-          Settings
-        </button>
-        <ul class="dropdown-menu">
-          <li>
-            <button class="dropdown-item">Change Precision <i class="bi bi-gear"></i></button>
-          </li>
-          <li>
-            <button class="dropdown-item" id="change-theme">Theme <i id="theme-icon" class="bi bi-sun"></i></button>
-          </li>
-        </ul>
+      <div class="col-4 d-flex justify-content-end header" id="navbar-setting">
+        <div class="change-precision-container dropdown header">
+          <button class="btn header" id="change-precision" type="button" data-bs-toggle="dropdown"
+            aria-expanded="false">Change Precision <i class="bi bi-gear"></i></button>
+          <ul class="dropdown-menu header">
+            <li><input class="dropdown-item" type="text" id="precision-input" placeholder="Enter the value"></li>
+          </ul>
+        </div>
+        <button class="btn header" id="change-theme">Theme <i id="theme-icon" class="bi bi-sun"></i></button>
       </div>
     </div>
   </nav>
@@ -90,13 +88,12 @@
           <mo>(</mo>
           <mi>x</mi>
           <mo>)</mo>
-          </sinh>
         </math>
       </button>
       <div class="input-group shadow p-3 my-4">
         <input id="fullInput" type="text" class="form-control" placeholder="Please select a function"
           aria-label="operand(s)" aria-describedby="button-addon2" />
-        <button id="button-addon2" class="btn btn-outline-dark fw-bold">
+        <button type="submit" id="button-addon2" class="btn btn-outline-dark fw-bold">
           Calculate!
         </button>
       </div>
@@ -108,7 +105,6 @@
   <div id="historyDiv" class="container mx-auto shadow-sm bg-body-tertiary">
     <p class="fw-bold">History</p>
     <div id="historySec">
-      
     </div>
   </div>
 
