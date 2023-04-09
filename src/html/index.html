@@ -15,6 +15,18 @@
 </head>
 
 <body>
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <h3 id="modal-inner">Change your precision</h3>
+      <input id="precisionInput" type="text" class="form-control" placeholder="Enter Precision"/>
+      <div class="row-fluid text-center">
+        <button type="button" id="confirmBtn" class="btn btn-outline-dark mx-2 mb-2 mt-2">Confirm</button>
+        <button type="button" id="cancelBtn" class="btn btn-outline-dark mx-2 mb-2 mt-2">Cancel</button>
+      </div>
+    </div>
+  
+  </div>
+
   <nav class="navbar bg-body-tertiary fw-bold row-fluid header">
     <div class="container-fluid">
       <a class="col-4" href="index.html">
@@ -27,8 +39,7 @@
       </div>
       <div class="col-4 d-flex justify-content-end header" id="navbar-setting">
         <div class="change-precision-container dropdown header">
-          <button class="btn header" id="change-precision" type="button" data-bs-toggle="dropdown"
-            aria-expanded="false">Change Precision <i class="bi bi-gear"></i></button>
+          <button class="btn header" id="change-precision" type="button">Precision: <i class="bi bi-gear"></i></button>
           <ul class="dropdown-menu header">
             <li><input class="dropdown-item" type="text" id="precision-input" placeholder="Enter the value"></li>
           </ul>
