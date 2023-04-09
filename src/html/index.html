@@ -17,7 +17,7 @@
 <body>
   <div id="myModal" class="modal">
     <div class="modal-content">
-      <h3 id="modal-inner">Change your precision</h3>
+      <h3>Change your precision (Current = <span id="modal-inner"></span>)</h3>
       <input id="precisionInput" type="text" class="form-control" placeholder="Enter Precision" />
       <div class="row-fluid text-center">
         <button type="button" id="confirmBtn" class="btn btn-outline-dark mx-2 mb-2 mt-2">Confirm</button>
@@ -38,7 +38,8 @@
       </div>
       <div class="col-4 d-flex justify-content-end header" id="navbar-setting">
         <div class="change-precision-container dropdown header">
-          <button class="btn header" id="change-precision" type="button">Precision: <i class="bi bi-gear"></i></button>
+          <button class="btn header" id="change-precision" type="button">Precision: <span
+              id="change-precision-value"></span> <i class="bi bi-gear"></i></button>
           <ul class="dropdown-menu header">
             <li><input class="dropdown-item" type="text" id="precision-input" placeholder="Enter the value"></li>
           </ul>
