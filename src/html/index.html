@@ -11,17 +11,17 @@
   <link rel="stylesheet" href="../style/style.css" />
   <link rel="icon" href="../assets/images/logo.png" type="image/x-icon">
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="../style/style.js"></script>
+  <script src="../js/stnd/style.js"></script>
 </head>
 
 <body>
   <div id="myModal" class="modal">
-    <div class="modal-content">
-      <h3 id="modal-inner">Change your precision</h3>
-      <input id="precisionInput" type="text" class="form-control" placeholder="Enter Precision" />
+    <div class="modal-content header">
+      <h3 class="text-dark mb-3">Change your precision (Current = <span id="modal-inner"></span>)</h3>
+      <input id="precisionInput" type="text" class="form-control header" placeholder="Enter Precision" />
       <div class="row-fluid text-center">
-        <button type="button" id="confirmBtn" class="btn btn-outline-dark mx-2 mb-2 mt-2">Confirm</button>
-        <button type="button" id="cancelBtn" class="btn btn-outline-dark mx-2 mb-2 mt-2">Cancel</button>
+        <button type="button" id="confirmBtn" class="btn btn-outline-dark me-2">Confirm</button>
+        <button type="button" id="cancelBtn" class="btn btn-outline-dark ms-2">Cancel</button>
       </div>
     </div>
   </div>
@@ -38,7 +38,8 @@
       </div>
       <div class="col-4 d-flex justify-content-end header" id="navbar-setting">
         <div class="change-precision-container dropdown header">
-          <button class="btn header" id="change-precision" type="button">Precision: <i class="bi bi-gear"></i></button>
+          <button class="btn header" id="change-precision" type="button">Precision: <span
+              id="change-precision-value"></span> <i class="bi bi-gear"></i></button>
           <ul class="dropdown-menu header">
             <li><input class="dropdown-item" type="text" id="precision-input" placeholder="Enter the value"></li>
           </ul>

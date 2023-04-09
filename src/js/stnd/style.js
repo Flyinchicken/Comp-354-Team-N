@@ -8,6 +8,8 @@ function changeTheme() {
     const elements = document.querySelectorAll('*');
     const themeIcon = document.getElementById('theme-icon');
     const excludedResultElement = document.getElementById("result");
+    const excludedCancelBtn = document.getElementById("cancelBtn");
+
     elements.forEach(element => {
         if (element.getAttribute("data-bs-theme") === "dark") {
             element.setAttribute("data-bs-theme", "light"); // Set to light mode
@@ -29,9 +31,11 @@ function changeTheme() {
         excludedNavbarElements[i].classList.toggle("bg-dark-subtle");
     }
 
-    // Set the background-color of the display area for the current calculation
+    // Set the background-color of the display area for the current calculation and cancel button
     excludedResultElement.classList.toggle("result");
     excludedResultElement.classList.toggle("result-dark");
+    excludedCancelBtn.classList.toggle("btn-outline-light");
+    excludedCancelBtn.classList.toggle("btn-outline-dark");
 
     // Change theme icon
     themeIcon.classList.toggle("bi-sun");

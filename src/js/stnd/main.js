@@ -73,8 +73,8 @@ function arccosBtnPress(){
  */
 
 function setPrecisionUI(){
-    $("#change-precision").html("Precision: " + precision + " <i class=\"bi bi-gear\"></i>");
-    $("#modal-inner").text("Change your precision (Current = " + precision + ")");
+    $("#change-precision-value").html(precision);
+    $("#modal-inner").text(precision);
 }
 
 function precisionBtnPress(){
