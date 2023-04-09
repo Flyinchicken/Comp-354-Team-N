@@ -52,3 +52,42 @@
         width: 0%;
     }
 }
+
+/* Modal Code */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px; /* Location of the box */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 40px;
+    border: 1px solid #888;
+    width: fit-content;
+}
+
+#modal-inner {
+    margin-bottom: 15px;
+}
+
+#precisionInput{
+    margin-bottom: 15px;
+}
+
+#confirmBtn{
+    background-color: green;
+    color: white;
+}
+
+#confirmBtn:hover{
+    color: white;
+    background-color: #000;
+}

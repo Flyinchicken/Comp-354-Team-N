@@ -4,7 +4,6 @@ import { MathFunctions } from '../functions/funcWrap.js'
 const myFunctions = new MathFunctions();
 
 var precision = 5;
-
 export { precision };
 
 //Attaching functions to their respective buttons post load dynamically
@@ -17,6 +16,11 @@ $(document).ready(function(){
     $("#stdBtn").click(stdBtnPress);
     $("#sinhBtn").click(sinhBtnPress);
     $("#arccosBtn").click(arccosBtnPress);
+    $("#change-precision").click(precisionBtnPress);
+    $("#confirmBtn").click(confirmBtnPress); 
+    $("#cancelBtn").click(cancelBtnPress);
+
+    setPrecisionUI();
 });
 
 /**
@@ -62,6 +66,37 @@ function arccosBtnPress(){
     var currentVal = $('#fullInput').val();
     var newVal = currentVal + " arccos(x)";
     $('#fullInput').val(newVal);
+}
+
+/**
+ * Precision handling
+ */
+
+function setPrecisionUI(){
+    $("#change-precision").html("Precision: " + precision + " <i class=\"bi bi-gear\"></i>");
+    $("#modal-inner").text("Change your precision (Current = " + precision + ")");
+}
+
+function precisionBtnPress(){
+    $("#myModal").css("display", "block");
+}
+
+function confirmBtnPress(){
+    precision = $("#precisionInput").val();
+    $("#precisionInput").val("");
+    setPrecisionUI();
+    $("#myModal").css("display", "none");
+}
+
+function cancelBtnPress(){
+    $("#myModal").css("display", "none");
+}
+
+var modal = document.getElementById("myModal");
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 
 /**
