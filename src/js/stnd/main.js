@@ -7,7 +7,9 @@ const myProcessor = new InputProcessing("#fullInput", "#result")
 var precision = 5;
 export { precision };
 
-//Attaching functions to their respective buttons post load dynamically
+/**
+ * Attaching functions to their respective buttons post load dynamically
+ */
 $(document).ready(function(){
     $("#button-addon2").click(inputProcessing);
     $("#madBtn").click(madBtnPress);
@@ -24,7 +26,7 @@ $(document).ready(function(){
         historyHandler.clearHistory();
     });
 
-    //Enter as a command to calculate
+    //Set up enter as a command to calculate
     $("#fullInput").keyup(function(event) {
         if (event.keyCode === 13) {
             $("#button-addon2").click();
@@ -112,6 +114,7 @@ function cancelBtnPress(){
     $("#myModal").css("display", "none");
 }
 
+//When clicking anywhere outside the modal, it closes the modal
 var modal = document.getElementById("myModal");
 window.onclick = function(event) {
     if (event.target == modal) {

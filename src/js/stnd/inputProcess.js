@@ -3,13 +3,25 @@ import { precision } from "./main.js";
 
 const myFunctions = new MathFunctions();
 
+/**
+ * Class that handles the processing of the calculations
+ */
 export class InputProcessing{
 
+    /**
+     * @param {string} inputDiv Id of the textBox that has the input we need
+     * @param {string} outDiv Id of the div where we want to output the result
+     * @constructor
+     */
     constructor(inputDiv, outDiv){
         this.inputDiv = inputDiv;
         this.outDiv = outDiv;
     }
 
+    /**
+     * Take the input, relay the task to other functions and output it
+     * @returns {string} final output including the input
+     */
     processCalculation(){
         var fullInput = $(this.inputDiv).val();
         var postfix = this.infixToPostfixConvert(fullInput);
@@ -23,6 +35,11 @@ export class InputProcessing{
         return output;
     }
 
+    /**
+     * Transforms the infix notation of the input into postfix
+     * @param {string} input Input entered by the user
+     * @returns {Array} Array of elements in postfix
+     */
     infixToPostfixConvert(input) {
         var priority = 0;
         var postfixBuffer = "";
