@@ -19,12 +19,19 @@ $(document).ready(function(){
     $("#change-precision").click(precisionBtnPress);
     $("#confirmBtn").click(confirmBtnPress); 
     $("#cancelBtn").click(cancelBtnPress);
+    $("#clearBtn").click(clearHistory);
+
+    //Enter as a command to calculate
+    $("#fullInput").keyup(function(event) {
+        if (event.keyCode === 13) {
+            $("#button-addon2").click();
+        }
+    });
 
     setPrecisionUI();
 
     //History Cookie Set Up
     var peak = $.cookie("history");
-    console.log(peak);
     if(peak == "null" || peak == null){
         var temp = [];
         $.cookie("history", JSON.stringify(temp));
@@ -48,6 +55,7 @@ function setHistory(){
 function clearHistory(){
     var temp = [];
     $.cookie("history", JSON.stringify(temp));
+    setHistory();
 }
 
 /**
