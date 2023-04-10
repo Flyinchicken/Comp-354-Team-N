@@ -1,5 +1,3 @@
-import { precision } from "../stnd/main.js";
-
 export class MathFunctions{
 
     /**
@@ -9,11 +7,11 @@ export class MathFunctions{
      */
     arccos(ratio){
         if (ratio === -1){
-            return Math.PI.toFixed(precision);
+            return Math.PI;
         }
 
         if (ratio === 1){
-            return 0.0.toFixed(precision);
+            return 0.0;
         }
 
         ratio = parseFloat(ratio);
@@ -21,7 +19,7 @@ export class MathFunctions{
             return NaN;
         }
 
-        return parseFloat((Math.PI/2 - this.arcsin(ratio)).toFixed(precision));
+        return parseFloat((Math.PI/2 - this.arcsin(ratio)));
     }
 
     /**
@@ -106,7 +104,7 @@ export class MathFunctions{
             result *= base;
         }
         
-        return parseFloat(result.toFixed(precision));
+        return parseFloat(result);
     }
 
     /**
@@ -138,7 +136,7 @@ export class MathFunctions{
 
         result = initialValue * growth;
 
-        return parseFloat(result.toFixed(precision));
+        return parseFloat(result);
     }
 
     /**
@@ -148,7 +146,7 @@ export class MathFunctions{
      */
     hyperbolicSine(x) {
         let result = (this.naturalExponentiation(x) - this.naturalExponentiation(- x)) / 2;
-        return parseFloat(result.toPrecision(precision));
+        return parseFloat(result);
     }
 
     /**
@@ -163,7 +161,7 @@ export class MathFunctions{
             return NaN;
         }
         
-        return parseFloat((this.naturalLog(x)/this.naturalLog(base)).toFixed(precision));
+        return parseFloat((this.naturalLog(x)/this.naturalLog(base)));
     }
 
     /**
@@ -225,7 +223,7 @@ export class MathFunctions{
         const absoluteDeviations = numbers.map((num) => this.abs(num - mean));
         const mad = absoluteDeviations.reduce((partialSum, a) => partialSum + a, 0) / numbers.length;
 
-        return parseFloat(mad.toFixed(precision));
+        return parseFloat(mad);
     }
 
     /**
@@ -267,7 +265,7 @@ export class MathFunctions{
             diff = square - num;
         }
 
-        return parseFloat(sqrt.toFixed(precision));
+        return parseFloat(sqrt);
     }
 
     /**
@@ -305,6 +303,6 @@ export class MathFunctions{
         variance = sum / (floatArray.length - 1);
         std = this.squareRoot(variance);
 
-        return parseFloat(std.toFixed(precision));
+        return parseFloat(std);
     }
 }
