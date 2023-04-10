@@ -154,7 +154,7 @@ export class InputProcessing{
         }
     
         //Returns the remaining number in the stack
-        return finalResult.toFixed(precision);
+        return parseFloat(finalResult.toFixed(precision));
     }
     
     /**
