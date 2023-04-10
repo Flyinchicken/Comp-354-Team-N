@@ -21,7 +21,34 @@ $(document).ready(function(){
     $("#cancelBtn").click(cancelBtnPress);
 
     setPrecisionUI();
+
+    //History Cookie Set Up
+    var peak = $.cookie("history");
+    console.log(peak);
+    if(peak == "null" || peak == null){
+        var temp = [];
+        $.cookie("history", JSON.stringify(temp));
+    }
+
+    setHistory();
 });
+
+/**
+ * Sets the history based on the cookie
+ */
+
+function setHistory(){
+    var history = $.parseJSON($.cookie("history"));
+    $("#historySec").html("");
+    history.forEach(element => {
+        $("#historySec").prepend("<p>" + element + "</p>");
+    });
+}
+
+function clearHistory(){
+    var temp = [];
+    $.cookie("history", JSON.stringify(temp));
+}
 
 /**
  * Functions that handle the pressing on the functions buttons on the pad.
@@ -113,7 +140,17 @@ function inputProcessing(){
     $("#result").empty();
     $("#result").show();
     $("#result").text(fullInput + " = " + result);
-    $("#historySec").prepend("<p>" + fullInput + " = " + result + "</p>");
+    
+    var history = $.parseJSON($.cookie("history"));
+
+    if(history.length >= 10){
+        history.shift();
+    }
+
+    history.push(fullInput.trim() + " = " + result);
+    $.cookie("history", JSON.stringify(history));
+
+    setHistory()
 }
 
 /**
