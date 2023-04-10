@@ -1,4 +1,3 @@
-import { str, num, multiplyNumbers } from '../stnd/test.js'
 import { MathFunctions } from '../functions/funcWrap.js'
 
 const myFunctions = new MathFunctions();
@@ -33,11 +32,12 @@ $(document).ready(function(){
     //History Cookie Set Up
     var peak = $.cookie("history");
     if(peak == "null" || peak == null){
-        var temp = [];
-        $.cookie("history", JSON.stringify(temp));
+        clearHistory();
     }
-
-    setHistory();
+    else{
+        setHistory();
+    }
+    
 });
 
 /**
