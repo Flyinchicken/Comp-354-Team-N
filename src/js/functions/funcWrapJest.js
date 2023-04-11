@@ -54,13 +54,21 @@ function arcsin(ratio) {
 function exponentiation(base, exponent) {
   base = parseFloat(base);
   exponent = parseFloat(exponent);
-  if (base === 0 && exponent <= 0) return NaN;
+  if (base === 0 && exponent <= 0){
+    return NaN;
+  }
 
-  if (base === 0) return 0;
+  if (base === 0){
+    return 0;
+  }
 
-  if (base === 1 || exponent === 0) return 1;
+  if (base === 1 || exponent === 0){
+    return 1;
+  }
 
-  if (exponent === 1) return base;
+  if (exponent === 1){
+    return base;
+  }
 
   if (!Number.isInteger(exponent)) {
     if (base === 1 / Math.E) exponent = -exponent;
@@ -83,17 +91,27 @@ function exponentiation(base, exponent) {
 }
 
 function exponentialGrowth(initialValue, growthFactor, xValue) {
-  if (growthFactor < 0 || (growthFactor == 0 && xValue < 0)) return NaN;
+  if (growthFactor == 0 && xValue < 0){
+    return NaN;
+  }
 
-  if (growthFactor == 1) return initialValue;
+  if (growthFactor == 1){
+    return initialValue;
+  } 
 
-  if (xValue == 0) return initialValue;
+  if (xValue == 0){
+    return initialValue;
+  }
 
-  if (initialValue == 0 || growthFactor == 0) return 0;
+  if (initialValue == 0 || growthFactor == 0){
+    return 0;
+  }
 
   let growth = exponentiation(growthFactor, xValue);
 
-  if (isNaN(growth)) return NaN;
+  if (isNaN(growth)){
+    return NaN;
+  }
 
   return initialValue * growth;
 }
@@ -112,8 +130,13 @@ function log(x, base) {
 }
 
 function naturalLog(number) {
-  if (number <= 0) return NaN;
-  if (number === 1) return 0;
+  if (number <= 0){
+    return NaN;
+  }
+
+  if (number === 1){
+    return 0;
+  }
 
   let guess = 10;
   let error = 1e-10;
@@ -128,11 +151,17 @@ function naturalLog(number) {
 }
 
 function naturalExponentiation(exponent) {
-  if (exponent === 1) return Math.E;
+  if (exponent === 1){
+    return Math.E;
+  }
 
-  if (exponent === 0) return 1;
+  if (exponent === 0){
+    return Math.E;
+  }
 
-  if (exponent === -1) return 1 / Math.E;
+  if (exponent === -1){
+    return 1 / Math.E;
+  }
 
   let result = 1;
   let term = 1;
@@ -162,9 +191,13 @@ function abs(num) {
 }
 
 function squareRoot(num) {
-  if (num < 0) return NaN;
+  if (num < 0){
+    return NaN;
+  }
 
-  if (num == 0 || num == 1) return num;
+  if (num == 0 || num == 1){
+    return num;
+  }
 
   let sqrt = num,
     precisionX = Number.MIN_VALUE,
