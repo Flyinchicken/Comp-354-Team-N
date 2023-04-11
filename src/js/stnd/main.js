@@ -52,42 +52,49 @@ function madBtnPress(){
     var currentVal = $('#fullInput').val();
     var newVal = currentVal + " mad(numbers... separate by ,)";
     $('#fullInput').val(newVal);
+    $('#fullInput').focus();
 }
 
 function expBtnPress(){
     var currentVal = $('#fullInput').val();
     var newVal = currentVal + " exp(base,exponent)";
     $('#fullInput').val(newVal);
+    $('#fullInput').focus();
 }
 
 function logBtnPress(){
     var currentVal = $('#fullInput').val();
     var newVal = currentVal + " log(x,base)";
     $('#fullInput').val(newVal);
+    $('#fullInput').focus();
 }
 
 function growthBtnPress(){
     var currentVal = $('#fullInput').val();
     var newVal = currentVal + " growth(initialAmount,growthFactor,x)";
     $('#fullInput').val(newVal);
+    $('#fullInput').focus();
 }
 
 function stdBtnPress(){
     var currentVal = $('#fullInput').val();
     var newVal = currentVal + " std(numbers... separate by ,)";
     $('#fullInput').val(newVal);
+    $('#fullInput').focus();
 }
 
 function sinhBtnPress(){
     var currentVal = $('#fullInput').val();
     var newVal = currentVal + " sinh(x)";
     $('#fullInput').val(newVal);
+    $('#fullInput').focus();
 }
 
 function arccosBtnPress(){
     var currentVal = $('#fullInput').val();
     var newVal = currentVal + " arccos(x)";
     $('#fullInput').val(newVal);
+    $('#fullInput').focus();
 }
 
 /**
@@ -101,6 +108,7 @@ function setPrecisionUI(){
 
 function precisionBtnPress(){
     $("#myModal").css("display", "block");
+    $('#precisionInput').focus();
 }
 
 function confirmBtnPress(){
