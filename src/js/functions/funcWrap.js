@@ -1,3 +1,7 @@
+/**
+ * Class that handles the special functions computation
+ * Good standalone module
+ */
 export class MathFunctions{
 
     /**
@@ -86,7 +90,7 @@ export class MathFunctions{
         }
 
         if (exponent === 1){
-            return base;
+            return parseFloat(base);
         }
 
         if (!Number.isInteger(exponent)) {
@@ -125,11 +129,11 @@ export class MathFunctions{
         }
 
         if (growthFactor == 1) {
-            return initialValue;
+            return parseFloat(initialValue);
         }
 
         if (xValue == 0) {
-            return initialValue;
+            return parseFloat(initialValue);
         }
 
         if (initialValue == 0 || growthFactor == 0) {
@@ -261,7 +265,7 @@ export class MathFunctions{
         if(num < 0){
             return NaN;
         }else if(num == 0 || num == 1){
-            return num;
+            return parseFloat(num);
         }
 
         let sqrt = num, precisionX = Number.MIN_VALUE, diff = 1, square = 0, prev = 0;

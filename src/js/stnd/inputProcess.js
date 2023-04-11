@@ -149,7 +149,6 @@ export class InputProcessing{
         
         var finalResult = stack.pop();
         if(isNaN(finalResult) || typeof finalResult === 'string' || finalResult instanceof String){
-            console.log("stupid");
             return "Invalid expression: " + finalResult;
         }
     
